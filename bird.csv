@@ -1,0 +1,13 @@
+species,date,location,latitude,longitude,count
+Snow Goose,2023-01-15,Lake Ontario,43.6532,-79.3832,150
+Snow Goose,2023-02-12,Lake Ontario,43.6532,-79.3832,200
+Snow Goose,2023-03-10,Hudson Bay,60.1087,-95.2607,500
+Snow Goose,2023-04-08,Hudson Bay,60.1087,-95.2607,800
+Snow Goose,2023-05-14,Mississippi Delta,32.3547,-89.3985,300
+Snow Goose,2023-06-20,Mississippi Delta,32.3547,-89.3985,100
+Snow Goose,2023-07-22,Great Salt Lake,40.7608,-111.8910,120
+Snow Goose,2023-08-18,Great Salt Lake,40.7608,-111.8910,90
+Snow Goose,2023-09-25,Delaware Bay,39.1441,-75.5244,450
+Snow Goose,2023-10-30,Delaware Bay,39.1441,-75.5244,700
+Snow Goose,2023-11-10,Lake Ontario,43.6532,-79.3832,250
+Snow Goose,2023-12-05,Lake Ontario,43.6532,-79.3832,300
