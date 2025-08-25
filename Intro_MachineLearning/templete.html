@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neural Networks: A Visual Timeline (1943–2024)</title>
+  <meta name="description" content="An interactive, multimedia timeline of key milestones in neural networks and deep learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    /* Timeline spine */
+    .spine:before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; transform: translateX(-50%); background: linear-gradient(180deg, rgba(59,130,246,0.25), rgba(99,102,241,0.25)); }
+    /* Card dots */
+    .dot { box-shadow: 0 6px 18px rgba(0,0,0,.15); }
+    /* Media container maintains 16:9 */
+    .media { position: relative; width: 100%; padding-top: 56.25%; border-radius: 1rem; overflow: hidden; }
+    .media > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .card { backdrop-filter: blur(6px); }
+    .fade-enter { opacity: 0; transform: translateY(8px); }
+    .fade-enter-active { opacity: 1; transform: translateY(0); transition: all .35s ease; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100">
+  <header class="sticky top-0 z-40 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/70 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2M7 12a5 5 0 0 1 5-5v10a5 5 0 0 1-5-5m6 5V7a5 5 0 0 1 0 10"/></svg>
+      <div class="flex-1">
+        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Neural Networks: A Visual Timeline (1943–2024)</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Key moments in algorithms, AI, and ML with images, video, and primary-source links.</p>
+      </div>
+      <a href="#about" class="text-sm px-3 py-1.5 rounded-xl border border-slate-300/60 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+      <a href="#howto" class="text-sm px-3 py-1.5 rounded-xl border border-slate-300/60 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Deploy</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4">
+    <!-- Controls -->
+    <section class="mt-6 grid gap-3 sm:grid-cols-3">
+      <input id="q" type="search" placeholder="Search events… (e.g., Transformer, 2012, Hinton)" class="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 outline-none focus:ring-2 focus:ring-indigo-400" />
+      <select id="era" class="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:ring-2 focus:ring-indigo-400">
+        <option value="">All eras</option>
+        <option>Foundations (1940s–1960s)</option>
+        <option>Neural Winters & Revivals (1970s–2000s)</option>
+        <option>Deep Learning Era (2010s–2024)</option>
+      </select>
+      <select id="theme" class="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 focus:ring-2 focus:ring-indigo-400">
+        <option value="">All themes</option>
+        <option>Theory</option>
+        <option>Architecture</option>
+        <option>Optimization</option>
+        <option>Datasets/Benchmarks</option>
+        <option>Applications</option>
+      </select>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="relative spine mt-8 pb-24">
+      <div class="space-y-10">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="prose dark:prose-invert max-w-none pb-24">
+      <h2>About this timeline</h2>
+      <p>This single-file site is designed for easy deployment via GitHub Pages. All media is embedded from public sources and can be replaced with your own images or locally hosted assets in an <code>assets/</code> folder. Each entry includes tags you can filter on above.</p>
+      <p><strong>Attribution note:</strong> Thumbnail images use placeholder photos from <a href="https://picsum.photos/" target="_blank" rel="noopener">Picsum</a> unless a specific public embed is provided. Replace with historically accurate media for your course or project.</p>
+    </section>
+
+    <!-- How to Deploy -->
+    <section id="howto" class="prose dark:prose-invert max-w-none pb-24">
+      <h2>How to deploy on GitHub Pages</h2>
+      <ol>
+        <li>Create a new public repo and add this <code>index.html</code> to the root (or <code>docs/</code> folder).</li>
+        <li>Commit and push.</li>
+        <li>In the repo, go to <em>Settings → Pages</em>. Under <em>Source</em>, select <strong>Main</strong> branch and <strong>/ (root)</strong> (or <strong>/docs</strong> if using a docs folder). Save.</li>
+        <li>Wait a minute; your site will be live at <code>https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/</code>.</li>
+      </ol>
+      <p>To customize, edit the <code>events</code> array in the script below. You can add YouTube IDs, image URLs, PDFs, and links to papers.</p>
+    </section>
+  </main>
+
+  <template id="card-template">
+    <article class="relative grid md:grid-cols-2 gap-4 md:gap-8 items-center card rounded-2xl p-4 md:p-6 border border-slate-200/60 dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/50">
+      <div class="absolute left-1/2 -translate-x-1/2 -top-4 w-3 h-3 rounded-full bg-indigo-500 dot"></div>
+      <div class="order-2 md:order-1 space-y-2">
+        <h3 class="text-xl font-bold"></h3>
+        <p class="text-sm text-slate-500"></p>
+        <div class="flex flex-wrap gap-2 text-xs"></div>
+        <div class="mt-2 flex gap-3 flex-wrap"></div>
+      </div>
+      <div class="order-1 md:order-2">
+        <div class="media bg-slate-100 dark:bg-slate-800"></div>
+      </div>
+    </article>
+  </template>
+
+  <footer class="border-t border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 flex flex-wrap gap-2 items-center justify-between">
+      <span>© <span id="year"></span> Neural Networks Timeline</span>
+      <a href="#" class="underline decoration-dotted">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    const events = [
+      {
+        year: 1943,
+        title: "McCulloch & Pitts Neuron",
+        era: "Foundations (1940s–1960s)",
+        theme: ["Theory", "Architecture"],
+        summary: "A logical model of neural activity introduces the idea of artificial neurons and thresholded activation.",
+        img: "https://picsum.photos/seed/nn1943/800/450",
+        links: [
+          { label: "Paper (PDF)", url: "https://www.cse.chalmers.se/~coquand/AUTOMATA/mcp.pdf" }
+        ]
+      },
+      {
+        year: 1957,
+        title: "Rosenblatt's Perceptron",
+        era: "Foundations (1940s–1960s)",
+        theme: ["Architecture", "Applications"],
+        summary: "First trainable linear classifier with a learning rule; early hardware implementations (Mark I Perceptron).",
+        img: "https://picsum.photos/seed/perceptron/800/450"
+      },
+      {
+        year: 1969,
+        title: "Minsky & Papert: Perceptrons",
+        era: "Foundations (1940s–1960s)",
+        theme: ["Theory"],
+        summary: "Shows limitations of single-layer perceptrons (e.g., XOR), contributing to an AI winter and shift of focus.",
+        img: "https://picsum.photos/seed/minsky/800/450"
+      },
+      {
+        year: 1986,
+        title: "Backpropagation Popularized",
+        era: "Neural Winters & Revivals (1970s–2000s)",
+        theme: ["Optimization", "Architecture"],
+        summary: "Rumelhart, Hinton, and Williams help mainstream multi-layer neural networks via error backpropagation.",
+        img: "https://picsum.photos/seed/backprop/800/450"
+      },
+      {
+        year: 1989,
+        title: "LeCun's CNNs for Digits",
+        era: "Neural Winters & Revivals (1970s–2000s)",
+        theme: ["Architecture", "Applications"],
+        summary: "Convolutional networks trained with backprop classify handwritten digits; later evolve into LeNet-5 (1998).",
+        img: "https://picsum.photos/seed/cnn/800/450"
+      },
+      {
+        year: 1997,
+        title: "LSTM",
+        era: "Neural Winters & Revivals (1970s–2000s)",
+        theme: ["Architecture"],
+        summary: "Long Short-Term Memory addresses vanishing gradients for sequence learning.",
+        img: "https://picsum.photos/seed/lstm/800/450"
+      },
+      {
+        year: 2006,
+        title: "Deep Learning Revival",
+        era: "Neural Winters & Revivals (1970s–2000s)",
+        theme: ["Optimization", "Architecture"],
+        summary: "Unsupervised pretraining (Hinton et al.) reignites interest in deeper nets.",
+        img: "https://picsum.photos/seed/dl2006/800/450"
+      },
+      {
+        year: 2012,
+        title: "AlexNet Wins ImageNet",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Architecture", "Datasets/Benchmarks"],
+        summary: "GPU-trained CNN achieves a large margin on ImageNet, catalyzing the deep learning boom.",
+        img: "https://picsum.photos/seed/alexnet/800/450"
+      },
+      {
+        year: 2014,
+        title: "GANs Introduced",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Architecture", "Applications"],
+        summary: "Generative Adversarial Networks (Goodfellow et al.) enable realistic image synthesis via adversarial training.",
+        img: "https://picsum.photos/seed/gans/800/450"
+      },
+      {
+        year: 2016,
+        title: "AlphaGo beats Lee Sedol",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Applications", "Datasets/Benchmarks"],
+        summary: "Deep reinforcement learning and MCTS defeat a world champion at Go.",
+        youtubeId: "WXuK6gekU1Y", // AlphaGo documentary (YouTube)
+        img: "https://picsum.photos/seed/alphago/800/450"
+      },
+      {
+        year: 2017,
+        title: "Transformers: Attention Is All You Need",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Architecture", "Optimization"],
+        summary: "Self-attention replaces recurrence for sequence modeling; foundation for modern large language models.",
+        img: "https://picsum.photos/seed/transformer/800/450"
+      },
+      {
+        year: 2018,
+        title: "BERT",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Architecture", "Datasets/Benchmarks"],
+        summary: "Bidirectional pretraining with masked language modeling drives large gains across NLP benchmarks.",
+        img: "https://picsum.photos/seed/bert/800/450"
+      },
+      {
+        year: 2020,
+        title: "GPT-3",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Architecture", "Applications"],
+        summary: "Large-scale autoregressive language model showcases few-shot abilities and broad applicability.",
+        img: "https://picsum.photos/seed/gpt3/800/450"
+      },
+      {
+        year: 2022,
+        title: "Text-to-Image Diffusion",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Applications", "Architecture"],
+        summary: "Models like Stable Diffusion and DALL·E 2 popularize high-fidelity text-to-image generation.",
+        img: "https://picsum.photos/seed/diffusion/800/450"
+      },
+      {
+        year: 2023,
+        title: "Instruction Tuning & Tool Use",
+        era: "Deep Learning Era (2010s–2024)",
+        theme: ["Optimization", "Applications"],
+        summary: "Instruction-following, RLHF, and tool integration improve alignment and practical utility of LLMs.
+        ",
+        img: "https://picsum.photos/seed/rlhf/800/450"
+      }
+    ].sort((a, b) => a.year - b.year);
+
+    const list = document.querySelector('#timeline .space-y-10');
+    const tpl = document.getElementById('card-template');
+
+    function formatTags(evt) {
+      const tags = [evt.era, ...(evt.theme || [])].filter(Boolean);
+      return tags;
+    }
+
+    function buildCard(evt) {
+      const node = tpl.content.cloneNode(true);
+      const title = node.querySelector('h3');
+      const subtitle = node.querySelector('p');
+      const tags = node.querySelector('.flex.flex-wrap.gap-2.text-xs');
+      const links = node.querySelector('.mt-2.flex');
+      const media = node.querySelector('.media');
+
+      title.textContent = `${evt.year} · ${evt.title}`;
+      subtitle.textContent = evt.summary || '';
+
+      formatTags(evt).forEach(t => {
+        const s = document.createElement('span');
+        s.className = 'px-2 py-1 rounded-full border border-slate-300/60 dark:border-slate-700/60';
+        s.textContent = t;
+        tags.appendChild(s);
+      });
+
+      // Links
+      (evt.links || []).forEach(l => {
+        const a = document.createElement('a');
+        a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = l.label;
+        a.className = 'text-indigo-600 dark:text-indigo-400 underline decoration-dotted';
+        links.appendChild(a);
+      });
+
+      // Media: prefer YouTube embed, else image
+      if (evt.youtubeId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${evt.youtubeId}`;
+        iframe.title = 'YouTube video player';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        media.appendChild(iframe);
+      } else if (evt.img) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = evt.img; img.alt = evt.title;
+        media.appendChild(img);
+      }
+
+      // Animation
+      const wrapper = node.querySelector('article');
+      wrapper.classList.add('fade-enter');
+      requestAnimationFrame(() => wrapper.classList.add('fade-enter-active'));
+
+      return node;
+    }
+
+    function render(filter = {}) {
+      list.innerHTML = '';
+      const q = (filter.q || '').toLowerCase();
+      const era = filter.era || '';
+      const theme = filter.theme || '';
+
+      events.forEach(evt => {
+        const hay = `${evt.year} ${evt.title} ${evt.summary} ${(evt.theme||[]).join(' ')} ${evt.era}`.toLowerCase();
+        const matchQ = !q || hay.includes(q);
+        const matchEra = !era || evt.era === era;
+        const matchTheme = !theme || (evt.theme || []).includes(theme);
+        if (matchQ && matchEra && matchTheme) {
+          list.appendChild(buildCard(evt));
+        }
+      });
+    }
+
+    // Controls
+    const q = document.getElementById('q');
+    const era = document.getElementById('era');
+    const theme = document.getElementById('theme');
+    [q, era, theme].forEach(el => el.addEventListener('input', () => render({ q: q.value, era: era.value, theme: theme.value })));
+
+    // Init
+    render();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
