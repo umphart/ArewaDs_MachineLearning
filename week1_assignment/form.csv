@@ -1,5 +1,5 @@
 birth_month,state,pet
-January,,Cats
+January,NaN,Cats
 JAN,CA,Cats
 Sept,Hawaii,Dog
 january,AK,Dog
@@ -9,4 +9,3 @@ April,CA,Dog
 January,California,Cats
 November,FL,Dog
 December,Florida,Cats
-February,TX,Cats
